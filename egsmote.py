@@ -16,9 +16,6 @@ from imblearn.utils import check_neighbors_object, Substitution
 from imblearn.utils._docstring import _random_state_docstring
 import collections
 from sklearn.cluster import KMeans
-from sklearn.mixture import GaussianMixture
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
 from yellowbrick.cluster import KElbowVisualizer
 
 
@@ -218,8 +215,7 @@ class EGSmote(BaseOverSampler):
         self.nn_mix_.fit(X)
         points_mix = self.nn_mix_.kneighbors(X_pos)[1]
 
-
-       # Generate new samples
+        # Generate new samples
         X_new = np.zeros((n_samples, X.shape[1]))
         for ind, (row, col) in enumerate(zip(rows, cols)):
             created = False
@@ -242,8 +238,8 @@ class EGSmote(BaseOverSampler):
                     if count_min == points_mix.shape[1]:
                         remaining_limitation = sampling_limitation[subCluster_label[row]]
                         # check whether new node can be created or not
-                        if remaining_limitation>0:
-                            sampling_limitation[subCluster_label[row]] = remaining_limitation-1
+                        if remaining_limitation > 0:
+                            sampling_limitation[subCluster_label[row]] = remaining_limitation - 1
                             surface_point = X_pos[points_pos[row, col]]
                             self.truncation_factor = 1.0
                         else:
@@ -259,7 +255,7 @@ class EGSmote(BaseOverSampler):
                         surface_point = (
                             surface_point_neg if radius_pos > radius_neg else surface_point_pos
                         )
-                        if (radius_pos > radius_neg):
+                        if radius_pos > radius_neg:
                             self.truncation_factor = -1.0
                         else:
                             self.truncation_factor = 0.4
@@ -275,8 +271,7 @@ class EGSmote(BaseOverSampler):
                         )
                         created = True
                 else:
-                    row=self.random_state_.randint(low=0, high=len(X_pos), size=1)[0]
-
+                    row = self.random_state_.randint(low=0, high=len(X_pos), size=1)[0]
 
         # Create new samples for target variable
         y_new = np.array([pos_class_label] * len(samples_indices))
@@ -289,22 +284,22 @@ class EGSmote(BaseOverSampler):
         model = KMeans()
         visualizer = KElbowVisualizer(model, k=(3, 20))
         visualizer.fit(X_pos)  # Fit the data to the visualizer
-        num_clusters=visualizer.elbow_value_
+        num_clusters = visualizer.elbow_value_
 
         # synthetic samples created under minority strategy
-        num_samples = n_samples * 0.5
+        num_samples = n_samples * 0.4
         kmeans = KMeans(n_clusters=num_clusters)
-        # kmeans = GaussianMixture(n_components=num_clusters)
         kmeans.fit(X_pos)
         y_kmeans = kmeans.predict(X_pos)
-        clusters=[]
+        clusters = []
         range_oversample = []
-        # y_kmeans = kmeans.predict(X_pos)
+
+        # Iterate through sub-clusters
         for i in range(num_clusters):
             cluster = X_pos[y_kmeans == i]
             clusters.append(cluster)
-            range_oversample.append(int(len(cluster)*(num_samples/len(X_pos))))
-        return y_kmeans,range_oversample
+            range_oversample.append(int(len(cluster) * (num_samples / len(X_pos))))
+        return y_kmeans, range_oversample
 
     def _fit_resample(self, X, y):
         # Validate estimator's parameters

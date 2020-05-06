@@ -1,4 +1,4 @@
-# Enhanced_Geomtertic_SMOTE
+# Enhanced Geomtertic SMOTE [EG-SMOTE]
 `>>> from collections import Counter`  
 `>>> from sklearn.datasets import make_classification`  
 `>>> from gsmote import EGSmote`

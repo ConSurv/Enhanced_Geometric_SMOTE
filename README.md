@@ -1,4 +1,4 @@
-"Python code repository for "Enhanced Geometric SMOTE [EG-SMOTE]"  
+## Python code repository for "Enhanced Geometric SMOTE [EG-SMOTE] 
 
 EG-SMOTE algorithm is an enhancement of G-SMOTE algorithm for efficient resampling that addresses the limitations of 
 * Synthesizing noisy minority samples
@@ -7,7 +7,7 @@ EG-SMOTE algorithm is an enhancement of G-SMOTE algorithm for efficient resampli
   
 Two types of imbalances are handled in EG-SMOTE; 
 1) between-class imbalance
-    - imbalance is handled with resampling methodology
+    - imbalance is handled with improved resampling methodology
 2) within-class imbalance
     - rectified by applying the k-means clustering algorithm and then applying resampling within clusters. 
 

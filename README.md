@@ -1,5 +1,3 @@
-# Enhanced_Geomtertic_SMOTE
-
 Python code repository for "Minority Resampling Boosted Unsupervised Machine Learning for Threat Detection in Cyber-Physical Energy Systems"  
   
 **Requirement Modules**   

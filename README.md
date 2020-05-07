@@ -1,4 +1,4 @@
-Python code repository for "Enhanced Geometric SMOTE [EG-SMOTE]"  
+"Python code repository for "Enhanced Geometric SMOTE [EG-SMOTE]"  
 
 EG-SMOTE algorithm is an enhancement of G-SMOTE algorithm for efficient resampling that addresses the limitations of 
 * Synthesizing noisy minority samples

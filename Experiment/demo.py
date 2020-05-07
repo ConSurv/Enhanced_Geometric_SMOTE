@@ -9,7 +9,7 @@ import numpy as np
 
 
 # Read CSV file
-df = pd.read_csv('../Experiment/data/NSLKDD-mini.csv')
+df = pd.read_csv('data/NSL_KDD_2k.csv')
 
 X = np.asarray(df.iloc[:, :-1].values)
 y = np.asarray(df.iloc[:, -1].values)

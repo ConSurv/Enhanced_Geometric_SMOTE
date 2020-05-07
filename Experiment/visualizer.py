@@ -38,5 +38,5 @@ def visualize(X, y, X_resampled, y_resampled):
 
     f.legend((c0, c1), ('Class #0', 'Class #1'), loc='lower center', ncol=2)
     plt.tight_layout(pad=3)
-    plt.show()
+    # plt.show()
     plt.savefig("output/re_sampled_" + datetime.datetime.now().strftime("%Y-%m-%d__%H_%M_%S") + ".png", dpi=2000)

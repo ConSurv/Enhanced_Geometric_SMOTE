@@ -1,4 +1,8 @@
+"""Demonstration of resampling"""
+
 import pandas as pd
+
+from Experiment.visualizer import visualize
 from egsmote import EGSmote
 from collections import Counter
 
@@ -16,3 +20,6 @@ X_res, y_res = egsmote.fit_resample(X, y)
 
 print('Resampled dataset shape %s' % (Counter(y_res)))
 # Resampled dataset shape Counter({{0: 28416, 1: 9472}})
+
+visualize(X,y,X_res,y_res)
+# Visualize the resampled data - check output folder

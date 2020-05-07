@@ -1,5 +1,16 @@
-Python code repository for "Minority Resampling Boosted Unsupervised Machine Learning for Threat Detection in Cyber-Physical Energy Systems"  
+Python code repository for "Enhanced Geometric SMOTE [EG-SMOTE]"  
+
+EG-SMOTE algorithm is an enhancement of G-SMOTE algorithm for efficient resampling that addresses the limitations of 
+* Synthesizing noisy minority samples
+* Overfitting due to extreme synthesis of minority samples
+* Improper synthesis along the borderlines.
   
+Two types of imbalances are handled in EG-SMOTE; 
+1) between-class imbalance
+    - imbalance is handled with resampling methodology
+2) within-class imbalance
+    - rectified by applying the k-means clustering algorithm and then applying resampling within clusters. 
+
 **Requirement Modules**   
 * Python 3
 * numpy

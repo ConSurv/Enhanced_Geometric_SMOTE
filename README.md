@@ -11,6 +11,7 @@ Two types of imbalances are handled in EG-SMOTE;
     - imbalance is handled with improved resampling methodology
 2) within-class imbalance
     - rectified by applying the k-means clustering algorithm and then applying resampling within clusters. 
+    
 
 **Requirement Modules**   
 * Python 3
@@ -21,7 +22,6 @@ Two types of imbalances are handled in EG-SMOTE;
 
 
 **Getting Started**  
-
-A sample dataset can be found in the Experiment/data/NSLKDD-mini.csv  
-
-The model architecture can be found in egsmote.py. And you can try the demo experiment by running Experiment/demo.py file.
+* A sample dataset can be found in the Experiment/data/NSLKDD-mini.csv  
+* The model architecture can be found in egsmote.py. 
+* And you can try the demo experiment by running Experiment/demo.py file.
